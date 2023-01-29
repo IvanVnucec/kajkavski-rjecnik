@@ -13,9 +13,9 @@
 <body onload="filterList();">
     <h1>Kajkavski riječnik</h1>
     <form onsubmit="filterList(); return false;">
-        <label for="search">Pretraži:</label>
+        <label for="search">Iskaj:</label>
         <input type="text" id="search" required oninput="filterList()">
-        <button type="button" id="clearBtn" onclick="clearInput()">Clear</button>
+        <button type="button" id="clearBtn" onclick="clearInput()">Zbriši</button>
     </form>
     <ul id="list"></ul>
 
