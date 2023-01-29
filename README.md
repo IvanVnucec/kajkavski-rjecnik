@@ -1,19 +1,6 @@
-# kajkavski-rjecnik
+# Kajkavski rječnik
 
-Flutter aplikacija za rječnik kajkavskog narječja.
-
-## Ideja
-
-- parsiranje i pohrana iz online baza u jednu bazu kao (mozda) json dict
-- mozda vise jsona recimo za svako slovo jedan json, treba vidjeti koliko treba da se jedan veliki json ucita
-- flutter aplikacija
-- flip kartice
-- lista rijeci
-- kviz gdje se za svaku kajkavsku rijec app ponudi nekoliko knjizevnih rijeci i onda korisnik pogadja rijec
-- kviz gdje za svaku knjizevnu rijec app ponudi nekoliko kajkavskih (obrnuto od ovoga gore)
-- baza podataka iz lucijine excel tablice
-- online baza koja se pohranjuje na mobitel, aplikacija tijekom paljenja provjerava ima li razlika
-- reklame
+Aplikacija za rječnik kajkavskog narječja.
 
 ## Izvori
 
