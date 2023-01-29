@@ -454,7 +454,7 @@ const dictionary = {
 };
 
 function getSortedItems() {
-    return sortedItems = Object.entries(dictionary).sort((a, b) => a[0] > b[0] ? 1 : -1);
+    return sortedItems = Object.entries(dictionary).sort((a, b) => trimAndLower(a[0]) > trimAndLower(b[0]) ? 1 : -1);
 }
 
 function clearList() {
@@ -462,6 +462,10 @@ function clearList() {
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
+}
+
+function trimAndLower(string) {
+    return string.toLowerCase().trim();
 }
 
 function filterList() {
@@ -472,7 +476,11 @@ function filterList() {
     const sortedItems = getSortedItems();
     const list = document.querySelector('#list');
     sortedItems.forEach(([key, value]) => {
-        if (key.includes(input) || value.includes(input)) {
+        const keyClean = trimAndLower(key);
+        const valueClean = trimAndLower(value);
+        const inputClean = trimAndLower(input);
+
+        if (keyClean.includes(inputClean) || valueClean.includes(inputClean)) {
             const li = document.createElement('li');
             li.innerText = key + ' - ' + value;
             list.appendChild(li);
