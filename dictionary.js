@@ -2159,11 +2159,12 @@ function trimAndLower(string) {
 
 function filterList() {
     clearList();
+    var numberOfItems = 0;
 
     const input = searchInput.value;
 
     const sortedItems = getSortedItems();
-    const list = document.querySelector('#list');
+    const list = document.getElementById('list');
     sortedItems.forEach(([key, value]) => {
         const keyClean = trimAndLower(key);
         const valueClean = trimAndLower(value);
@@ -2173,12 +2174,15 @@ function filterList() {
             const li = document.createElement('li');
             li.innerText = key + ' - ' + value;
             list.appendChild(li);
+            numberOfItems++;
         }
     });
+
+    document.getElementById("number-of-items").innerHTML = numberOfItems;
 }
 
 function clearInput() {
-    const searchInput = document.querySelector("#search");
+    const searchInput = document.getElementById("search");
     searchInput.value = "";
     filterList();
     searchInput.focus();
