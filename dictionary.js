@@ -1227,6 +1227,7 @@ const dictionary = {
     'povreslo': 'slamnati povez na snopu',
     'povrnuti se': 'vratiti se',
     'povrtelj, povrtelje': 'vrt',
+    'povleči': 'povući',
     'pozabiti': 'zaboraviti',
     'požirak': 'ždrijelo',
     'pozoj': 'zmaj',
