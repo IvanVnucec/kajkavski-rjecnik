@@ -13,11 +13,6 @@
 </head>
 
 <style>
-    /* dark theme (if supported)*/
-    html {
-        color-scheme: dark;
-    }
-
     body {
         padding: 0 8px;
     }
@@ -25,11 +20,17 @@
     li {
         margin: 2px 0;
     }
+
+    mark {
+        background-color: rgba(190, 150, 0, 0.3);
+        color: unset;
+    }
 </style>
 
 <body onload="filterList();">
     <h1 style="margin-bottom: 0;">Kajkavski rječnik</h1>
-    <div style="font-size: 9pt;">Made by: Ivan Vnučec, <a href="https://github.com/IvanVnucec/kajkavski-rjecnik">GitHub</a>, 2023</div>
+    <div style="font-size: 9pt;">Made by: Ivan Vnučec, <a
+            href="https://github.com/IvanVnucec/kajkavski-rjecnik">GitHub</a>, 2023</div>
     <div style="height: 30px;"></div>
 
     <form onsubmit="filterList(); return false;">

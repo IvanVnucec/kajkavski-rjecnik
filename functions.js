@@ -13,6 +13,17 @@ function trimAndLower(string) {
     return string.toLowerCase().trim();
 }
 
+function highlightedString(string, highlight) {
+    const index = string.indexOf(highlight);
+    if (index != -1) {
+        return string.slice(0, index)
+            + `<mark>${string.slice(index, index + highlight.length)}</mark>`
+            + string.slice(index + highlight.length);
+    }
+
+    return string;
+}
+
 function filterList() {
     clearList();
     var numberOfItems = 0;
@@ -28,7 +39,8 @@ function filterList() {
 
         if (keyClean.includes(inputClean) || valueClean.includes(inputClean)) {
             const li = document.createElement('li');
-            li.innerText = key + ' - ' + value;
+            li.innerHTML = highlightedString(key, input)
+                + ' - ' + highlightedString(value, input);
             list.appendChild(li);
             numberOfItems++;
         }
