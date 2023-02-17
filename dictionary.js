@@ -7,7 +7,7 @@ function clearList() {
 }
 
 function trimAndLower(string) {
-    return string.toLowerCase().trim();
+    return string.trim().toLowerCase();
 }
 
 function highlightedString(string, highlight) {
