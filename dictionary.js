@@ -21,7 +21,7 @@ function highlightedString(string, highlight) {
     return string;
 }
 
-function filterList() {
+function searchAndDisplay() {
     clearList();
     var numberOfItems = 0;
 

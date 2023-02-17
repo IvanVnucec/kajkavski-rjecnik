@@ -27,13 +27,13 @@
     }
 </style>
 
-<body onload="filterList();">
+<body onload="searchAndDisplay();">
     <h1 style="margin-bottom: 0;">Kajkavski rječnik</h1>
     <div style="font-size: 9pt;">Made by: Ivan Vnučec, <a
             href="https://github.com/IvanVnucec/kajkavski-rjecnik">GitHub</a>, 2023</div>
     <div style="height: 30px;"></div>
 
-    <form onsubmit="filterList(); return false;">
+    <form onsubmit="searchAndDisplay(); return false;">
         <label for="search" style="font-weight: bold;">Iskaj:</label>
         <input type="text" id="search">
         <button type="button" id="clearBtn" onclick="clearInput()">Zbriši</button>
@@ -47,7 +47,7 @@
     <script>
         // register event listener on search input
         const searchInput = document.getElementById('search');
-        searchInput.addEventListener('input', filterList);
+        searchInput.addEventListener('input', searchAndDisplay);
     </script>
 </body>
 
