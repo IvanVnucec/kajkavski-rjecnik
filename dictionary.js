@@ -3,10 +3,7 @@ function getSortedItems() {
 }
 
 function clearList() {
-    const list = document.querySelector('#list');
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
+    document.getElementById("list").innerHTML = "";
 }
 
 function trimAndLower(string) {
