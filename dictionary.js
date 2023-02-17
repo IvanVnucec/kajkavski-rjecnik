@@ -21,34 +21,45 @@ function highlightedString(string, highlight) {
     return string;
 }
 
-function searchAndDisplay() {
-    clearList();
-    var numberOfItems = 0;
-
-    const input = searchInput.value;
+function search(query) {
+    const results = [];
 
     const sortedItems = getSortedItems();
-    const list = document.getElementById('list');
-    sortedItems.forEach(([key, value]) => {
-        const keyClean = trimAndLower(key);
-        const valueClean = trimAndLower(value);
-        const inputClean = trimAndLower(input);
+    sortedItems.forEach((item) => {
+        const key = trimAndLower(item[0]);
+        const value = trimAndLower(item[1]);
 
-        if (keyClean.includes(inputClean) || valueClean.includes(inputClean)) {
-            const li = document.createElement('li');
-            li.innerHTML = highlightedString(key, input)
-                + ' - ' + highlightedString(value, input);
-            list.appendChild(li);
-            numberOfItems++;
+        if (key.includes(query) || value.includes(query)) {
+            results.push(item);
         }
     });
 
-    document.getElementById("number-of-items").innerHTML = numberOfItems;
+    return results;
 }
 
-function clearInput() {
+function displayResults(results, query) {
+    const list = document.getElementById('list');
+    results.forEach(([key, value]) => {
+        const li = document.createElement('li');
+        li.innerHTML = highlightedString(key, query)
+            + ' - ' + highlightedString(value, query);
+        list.appendChild(li);
+    });
+
+    document.getElementById("number-of-items").innerHTML = results.length;
+}
+
+function searchAndDisplay() {
+    const query = trimAndLower(searchInput.value);
+    const results = search(query);
+
+    clearList();
+    displayResults(results, query);
+}
+
+function onClear() {
     const searchInput = document.getElementById("search");
     searchInput.value = "";
-    filterList();
     searchInput.focus();
+    searchAndDisplay();
 }
