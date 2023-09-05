@@ -1,17 +1,11 @@
-function getSortedItems() {
-    return sortedItems = Object.entries(words).sort((a, b) => trimAndLower(a[0]) > trimAndLower(b[0]) ? 1 : -1);
-}
+const WORDS_SORTED = Object.entries(words).sort((first, second) => first[0].toLowerCase() > second[0].toLowerCase() ? 1 : -1);
 
 function clearList() {
     document.getElementById("list").innerHTML = "";
 }
 
-function trimAndLower(string) {
-    return string.trim().toLowerCase();
-}
-
 function highlightedString(string, highlight) {
-    const index = string.indexOf(highlight);
+    const index = string.toLowerCase().indexOf(highlight.toLowerCase());
     if (index != -1) {
         return string.slice(0, index)
             + `<mark>${string.slice(index, index + highlight.length)}</mark>`
@@ -24,10 +18,9 @@ function highlightedString(string, highlight) {
 function search(query) {
     const results = [];
 
-    const sortedItems = getSortedItems();
-    sortedItems.forEach((item) => {
-        const key = trimAndLower(item[0]);
-        const value = trimAndLower(item[1]);
+    WORDS_SORTED.forEach((item) => {
+        const key = item[0].toLowerCase();
+        const value = item[1].toLowerCase();
 
         if (key.includes(query) || value.includes(query)) {
             results.push(item);
@@ -38,6 +31,7 @@ function search(query) {
 }
 
 function displayResults(results, query) {
+    clearList();
     const list = document.getElementById('list');
     results.forEach(([key, value]) => {
         const li = document.createElement('li');
@@ -50,10 +44,9 @@ function displayResults(results, query) {
 }
 
 function searchAndDisplay() {
-    const query = trimAndLower(searchInput.value);
+    const query = searchInput.value.toLowerCase();
     const results = search(query);
 
-    clearList();
     displayResults(results, query);
 }
 
