@@ -1163,7 +1163,7 @@ const words = {
 
 
     // TU SMO STALI
-    
+
 
     'rijado': 'uzbuna',
     'ringišpil': 'naprava za djecu za vrtenje na proštenje',
@@ -1236,7 +1236,7 @@ const words = {
     'ščava': 'hrana za svinje',
     'ščava': 'napoj',
     'ščeje': 'mačkica',
-    'ščepec, ščepci': 'prst, prsti ',
+    'ščepec, ščepci': 'prst, prsti',
     'ščipa': 'mala količina nečega',
     'ščipati': 'štipati',
     'ščrba': 'rupa u zubu, krnja',
