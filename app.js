@@ -1,4 +1,9 @@
-const WORDS_SORTED = Object.entries(words).sort((first, second) => first[0].toLowerCase() > second[0].toLowerCase() ? 1 : -1);
+const SEARCH_WORKER = new Worker('dictionary.js');
+SEARCH_WORKER.addEventListener('message', function (e) {
+    console.log('search finished')
+    const results = e.data;
+    displayResults(results);
+});
 
 function clearList() {
     document.getElementById("list").innerHTML = "";
@@ -15,22 +20,13 @@ function highlightedString(string, highlight) {
     return string;
 }
 
-function search(query) {
-    const results = [];
-
-    WORDS_SORTED.forEach((item) => {
-        const key = item[0].toLowerCase();
-        const value = item[1].toLowerCase();
-
-        if (key.includes(query) || value.includes(query)) {
-            results.push(item);
-        }
-    });
-
-    return results;
+function searchStart(query) {
+    SEARCH_WORKER.postMessage(query);
 }
 
-function displayResults(results, query) {
+function displayResults(results) {
+    const query = searchInput.value.toLowerCase()
+
     clearList();
     const list = document.getElementById('list');
     results.forEach(([key, value]) => {
@@ -45,13 +41,10 @@ function displayResults(results, query) {
 
 function searchAndDisplay() {
     const query = searchInput.value.toLowerCase();
-    const results = search(query);
-
-    displayResults(results, query);
+    searchStart(query);
 }
 
 function onClear() {
-    const searchInput = document.getElementById("search");
     searchInput.value = "";
     searchInput.focus();
     searchAndDisplay();

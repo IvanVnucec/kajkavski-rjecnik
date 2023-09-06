@@ -1868,3 +1868,26 @@ const words = {
     'zvračiti': 'izliječiti',
     'zvuna': 'izvana',
 };
+
+const WORDS_SORTED = Object.entries(words).sort((first, second) => first[0].toLowerCase() > second[0].toLowerCase() ? 1 : -1);
+
+function searchForWords(query) {
+    const results = [];
+
+    WORDS_SORTED.forEach((item) => {
+        const key = item[0].toLowerCase();
+        const value = item[1].toLowerCase();
+
+        if (key.includes(query) || value.includes(query)) {
+            results.push(item);
+        }
+    });
+
+    return results;
+}
+
+self.addEventListener('message', function (e) {
+    const query = e.data;
+    const results = searchForWords(query);
+    self.postMessage(results);
+});
