@@ -1045,6 +1045,7 @@ const words = {
     'poharaji': 'sitni kolači (svatovski)',
     'pojava': 'veći komad platna u koji se skupljala i nosila trava, lišće, itd.',
     'pojngva, ponjgva, ponjgla': 'tava',
+    'pojka': 'pjevica (ptica), ili isto što i popevka',
     'pokač': 'muhomlat',
     'pokati': 'tući po nečemu ili nekome',
     'pokopič': 'grobar',
