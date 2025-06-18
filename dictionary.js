@@ -1755,7 +1755,10 @@ const words = {
     'zvuna': 'izvana',
 };
 
-const WORDS_SORTED = Object.entries(words).sort((first, second) => first[0].toLowerCase() > second[0].toLowerCase() ? 1 : -1);
+const croatianCollator = new Intl.Collator('hr');
+const WORDS_SORTED = Object.entries(words).sort((first, second) =>
+  croatianCollator.compare(first[0], second[0])
+);
 
 function searchForWords(query) {
     const results = [];
