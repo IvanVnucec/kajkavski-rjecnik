@@ -1,6 +1,5 @@
 const SEARCH_WORKER = new Worker('dictionary.js');
 SEARCH_WORKER.addEventListener('message', function (e) {
-    console.log('search finished')
     const results = e.data;
     displayResults(results);
 });
