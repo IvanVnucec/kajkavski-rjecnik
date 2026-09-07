@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ivanvnucec.github.io/kajkavski-rjecnik/sitemap.xml

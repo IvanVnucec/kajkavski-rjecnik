@@ -5,63 +5,160 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico?">
-    <title>Kajkavski rječnik s preko 1700 najčešćih riječi</title>
 
-    <script src="dictionary.js"></script>
-    <script src="app.js"></script>
+    <!-- Primary SEO -->
+    <title>Kajkavski rječnik - pretraži više od 1700 najčešćih riječi</title>
+    <meta name="description" content="Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.">
+    <meta name="keywords" content="kajkavski rječnik, kajkavština, kajkavske riječi, kajkavski prijevod, kajkavski online">
+    <meta name="author" content="Ivan Vnučec">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://ivanvnucec.github.io/kajkavski-rjecnik/">
+
+    <!-- Language / geo -->
+    <meta name="language" content="Croatian">
+    <meta name="geo.region" content="HR">
+    <meta name="geo.placename" content="Hrvatska">
+    <link rel="alternate" hreflang="hr" href="https://ivanvnucec.github.io/kajkavski-rjecnik/">
+    <link rel="alternate" hreflang="x-default" href="https://ivanvnucec.github.io/kajkavski-rjecnik/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="hr_HR">
+    <meta property="og:site_name" content="Kajkavski rječnik">
+    <meta property="og:title" content="Kajkavski rječnik - pretraži više od 1700 najčešćih riječi">
+    <meta property="og:description" content="Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.">
+    <meta property="og:url" content="https://ivanvnucec.github.io/kajkavski-rjecnik/">
+    <meta property="og:image" content="https://ivanvnucec.github.io/kajkavski-rjecnik/og-image.png">
+    <meta property="og:image:alt" content="Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kajkavski rječnik - pretraži više od 1700 najčešćih riječi">
+    <meta name="twitter:description" content="Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.">
+    <meta name="twitter:image" content="https://ivanvnucec.github.io/kajkavski-rjecnik/og-image.png">
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <meta name="theme-color" content="#4a0000">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#website",
+            "url": "https://ivanvnucec.github.io/kajkavski-rjecnik/",
+            "name": "Kajkavski rječnik",
+            "inLanguage": "hr",
+            "description": "Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.",
+            "publisher": { "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#person" },
+            "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://ivanvnucec.github.io/kajkavski-rjecnik/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@type": "DefinedTermSet",
+            "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#dictionary",
+            "name": "Kajkavski rječnik",
+            "description": "Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.",
+            "inLanguage": "hr",
+            "numberOfItems": 1700,
+            "url": "https://ivanvnucec.github.io/kajkavski-rjecnik/"
+        },
+        {
+            "@type": "Person",
+            "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#person",
+            "name": "Ivan Vnučec",
+            "url": "https://ivanvnucec.github.io/about/"
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#webpage",
+            "url": "https://ivanvnucec.github.io/kajkavski-rjecnik/",
+            "name": "Kajkavski rječnik - pretraži više od 1700 najčešćih riječi",
+            "isPartOf": { "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#website" },
+            "about": { "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#dictionary" },
+            "inLanguage": "hr",
+            "author": { "@id": "https://ivanvnucec.github.io/kajkavski-rjecnik/#person" }
+        }
+        ]
+    }
+    </script>
+
+    <style>
+        body {
+            padding: 0 8px;
+        }
+
+        li {
+            margin: 2px 0;
+        }
+
+        mark {
+            background-color: rgba(190, 150, 0, 0.3);
+            color: unset;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
-<style>
-    body {
-        padding: 0 8px;
-    }
-
-    li {
-        margin: 2px 0;
-    }
-
-    mark {
-        background-color: rgba(190, 150, 0, 0.3);
-        color: unset;
-    }
-
-    .center {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-    }
-</style>
-
 <body onload="searchAndDisplay();">
-    <div class="center" style="margin-bottom: 30px;">
+    <header class="center" style="margin-bottom: 30px;">
         <div>
             <h1 style="margin-bottom: 10px;">Kajkavski rječnik</h1>
-            <div style="margin-bottom: 10px; font-size: 12pt;">Pretraži kajkavski rječnik s više od 1700 najčešćih riječi.</div>
+            <p style="margin-bottom: 10px; font-size: 12pt;">Pretraži više od 1700 najčešćih kajkavskih riječi.</p>
             <div style="margin-bottom: 30px; font-size: 9pt;">Autor: <a href="https://ivanvnucec.github.io/about/">Ivan Vnučec</a>, <a title="Statistika" href="https://librecounter.org/referer/show" target="_blank"><img src="https://librecounter.org/counter.svg" referrerpolicy="unsafe-url" alt="librecounter" style="height: 1em" loading="lazy"/></a></div>
         </div>
-    </div>
+    </header>
 
-    <div class="center" style="margin-bottom: 30px;">
-        <div>
-            <form onsubmit="searchAndDisplay(); return false;">
-                <label for="search" style="font-weight: bold;">Iskaj:</label>
-                <input type="text" id="search" autofocus="" autocomplete="off">
-                <button type="button" id="clearBtn" onclick="onClear()">Zbriši</button>
-            </form>
+    <main>
+        <div class="center" style="margin-bottom: 30px;">
+            <div>
+                <form role="search" aria-label="Pretraži kajkavski rječnik" onsubmit="searchAndDisplay(); return false;">
+                    <label for="search" style="font-weight: bold;">Iskaj:</label>
+                    <input type="search" id="search" name="q" autofocus="" autocomplete="off" enterkeyhint="search" spellcheck="false" aria-describedby="search-hint">
+                    <button type="button" id="clearBtn" onclick="onClear()">Zbriši</button>
+                </form>
 
-            <div style="margin: 3px 0 8px 0; font-size: 10pt;">Režultatof: <span id="number-of-items"></span></div>
+                <p id="search-hint" style="margin: 3px 0 8px 0; font-size: 10pt;">Režultatof: <span id="number-of-items"></span></p>
+            </div>
         </div>
-    </div>
 
-    <div class="center" style="max-width: 500px; justify-content: left;">
-        <ul id="list" style="list-style-type: none; padding: 0;"></ul>
-    </div>
+        <div class="center" style="max-width: 500px; justify-content: left;">
+            <ul id="list" style="list-style-type: none; padding: 0;"></ul>
+        </div>
+    </main>
 
+    <script src="dictionary.js" ></script>
+    <script src="app.js" ></script>
     <script>
         // register event listener on search input
         const searchInput = document.getElementById('search');
         searchInput.addEventListener('input', searchAndDisplay);
+
+        // prefill search param
+        const params = new URLSearchParams(location.search);
+        const q = params.get('q');
+        if (q) {
+            searchInput.value = q;
+        }
     </script>
 </body>
 
