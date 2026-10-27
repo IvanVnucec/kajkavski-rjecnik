@@ -220,7 +220,7 @@ fs.writeFileSync(path.join(root, 'index.html'), renderPage({
     <meta name="geo.placename" content="Hrvatska">
     <link rel="alternate" hreflang="hr" href="${BASE}/">
     <link rel="alternate" hreflang="x-default" href="${BASE}/">`,
-    h1Html: 'Kajkavski rječnik',
+    h1Html: `<a href="${BASE}/" class="plain-link">Kajkavski rječnik</a>`,
     searchValue: '',
     resultCount: '',
     listHtml: '',
