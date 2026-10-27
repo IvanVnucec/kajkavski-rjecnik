@@ -26,3 +26,7 @@ Aplikacija za rječnik kajkavskog narječja.
   - <https://web.archive.org/web/20220122110253/https://www.brela.com/brolanenses/rjecnik.htm>
 - <https://web.archive.org/web/20090530154614/http://www.bednja.hr/download/Jedvaj_Bednjanski_govor.pdf>
 - <http://os-gkrklec-calinec.skole.hr/upload/os-gkrklec-calinec/newsattach/161/Kajkavstina_je_carobna.pdf>
+
+```shell
+node scripts/generate_pages.mjs
+```

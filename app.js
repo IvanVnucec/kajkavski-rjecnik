@@ -1,4 +1,8 @@
-const SEARCH_WORKER = new Worker('dictionary.js');
+const searchInput = document.getElementById('search');
+
+// Resolve dictionary.js relative to this script's own URL, so the worker loads
+// correctly from pages at any depth (/ and /<slug>/).
+const SEARCH_WORKER = new Worker(new URL('dictionary.js', document.currentScript.src));
 SEARCH_WORKER.addEventListener('message', function (e) {
     const results = e.data;
     displayResults(results);
@@ -38,13 +42,33 @@ function displayResults(results) {
     document.getElementById("number-of-items").innerHTML = results.length;
 }
 
-function searchAndDisplay() {
+// shouldSyncUrl is true only for user-driven searches (typing, clear, submit),
+// so the initial search on page load (onload, prefilled input) doesn't rewrite the URL.
+function searchAndDisplay(shouldSyncUrl = false) {
     const query = searchInput.value.toLowerCase();
     searchStart(query);
+
+    if (shouldSyncUrl) {
+        // keep the URL in sync (?q=...) so searches can be shared and survive reload
+        const url = query
+            ? `${location.pathname}?q=${encodeURIComponent(query)}`
+            : location.pathname;
+        history.replaceState(null, '', url);
+    }
 }
 
 function onClear() {
     searchInput.value = "";
     searchInput.focus();
-    searchAndDisplay();
+    searchAndDisplay(true);
+}
+
+// register event listener on search input
+searchInput.addEventListener('input', () => searchAndDisplay(true));
+
+// prefill search param (?q=...)
+const params = new URLSearchParams(location.search);
+const q = params.get('q');
+if (q) {
+    searchInput.value = q;
 }
