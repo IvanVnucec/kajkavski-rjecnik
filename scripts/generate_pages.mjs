@@ -20,6 +20,11 @@ const start = dictSrc.indexOf('{', dictSrc.indexOf('const words'));
 const end = dictSrc.indexOf('\n};', start);
 const words = new Function(`return ${dictSrc.slice(start, end + 2)}`)();
 
+// real dictionary size, used everywhere instead of a hardcoded number
+const COUNT = Object.keys(words).length;
+// display count, rounded down to 100 so "više od X" stays factually true
+const DISPLAY_COUNT = Math.floor(COUNT / 100) * 100;
+
 // --- slugify: č ć -> c, š -> s, ž -> z, đ dž -> dz; keep ASCII-only URLs ---
 function slugify(name) {
     return name.toLowerCase()
@@ -79,7 +84,7 @@ const HOME_JSON_LD = `{
             "url": "${BASE}/",
             "name": "Kajkavski rječnik",
             "inLanguage": "hr",
-            "description": "Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.",
+            "description": "Online kajkavski rječnik s brzim pretraživanjem više od ${DISPLAY_COUNT} najčešćih riječi.",
             "publisher": { "@id": "${BASE}/#person" },
             "potentialAction": {
             "@type": "SearchAction",
@@ -94,9 +99,9 @@ const HOME_JSON_LD = `{
             "@type": "DefinedTermSet",
             "@id": "${BASE}/#dictionary",
             "name": "Kajkavski rječnik",
-            "description": "Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.",
+            "description": "Online kajkavski rječnik s brzim pretraživanjem više od ${DISPLAY_COUNT} najčešćih riječi.",
             "inLanguage": "hr",
-            "numberOfItems": 1700,
+            "numberOfItems": ${COUNT},
             "url": "${BASE}/"
         },
         {
@@ -109,7 +114,7 @@ const HOME_JSON_LD = `{
             "@type": "WebPage",
             "@id": "${BASE}/#webpage",
             "url": "${BASE}/",
-            "name": "Kajkavski rječnik - pretraži više od 1700 najčešćih riječi",
+            "name": "Kajkavski rječnik - pretraži više od ${DISPLAY_COUNT} najčešćih riječi",
             "isPartOf": { "@id": "${BASE}/#website" },
             "about": { "@id": "${BASE}/#dictionary" },
             "inLanguage": "hr",
@@ -171,7 +176,7 @@ ${extraHead}
     <header class="center" style="margin-bottom: 30px;">
         <div>
             <h1 style="margin-bottom: 10px;">${h1Html}</h1>
-            <p style="margin-bottom: 10px; font-size: 12pt;">Pretraži više od 1700 najčešćih kajkavskih riječi.</p>
+            <p style="margin-bottom: 10px; font-size: 12pt;">Pretraži više od ${DISPLAY_COUNT} najčešćih kajkavskih riječi.</p>
             <div style="margin-bottom: 30px; font-size: 9pt;">Autor: <a href="https://ivanvnucec.github.io/about/">Ivan Vnučec</a>, <a title="Statistika" href="https://librecounter.org/referer/show" target="_blank"><img src="https://librecounter.org/counter.svg" referrerpolicy="unsafe-url" alt="librecounter" style="height: 1em" loading="lazy"/></a></div>
         </div>
     </header>
@@ -203,8 +208,8 @@ ${extraHead}
 }
 
 // --- home page ---
-const HOME_TITLE = 'Kajkavski rječnik - pretraži više od 1700 najčešćih riječi';
-const HOME_DESCRIPTION = 'Online kajkavski rječnik s brzim pretraživanjem više od 1700 najčešćih riječi.';
+const HOME_TITLE = `Kajkavski rječnik - pretraži više od ${DISPLAY_COUNT} najčešćih riječi`;
+const HOME_DESCRIPTION = `Online kajkavski rječnik s brzim pretraživanjem više od ${DISPLAY_COUNT} najčešćih riječi.`;
 
 fs.writeFileSync(path.join(root, 'index.html'), renderPage({
     prefix: '',
